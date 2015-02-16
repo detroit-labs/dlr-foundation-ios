@@ -10,6 +10,14 @@
 
 #import "NSArray+DLR.h"
 
+// These two empty classes support testing class membership below and should not
+// be used directly.
+@interface ClassA : NSObject
+@end
+@interface ClassB : ClassA
+@end
+
+
 @interface NSArray_DLRTests : XCTestCase
 
 @end
@@ -74,4 +82,40 @@
     XCTAssertNil([array dlr_objectBeforeObject:@"B"]);
 }
 
+#pragma mark - dlr_containsKindOfClass:
+
+- (void)testArrayContainingKindOfClass {
+    NSArray *array = @[[ClassB new]];
+    
+    XCTAssertTrue([array dlr_containsKindOfClass:[ClassA class]]);
+    XCTAssertTrue([array dlr_containsKindOfClass:[ClassB class]]);
+}
+
+- (void)testArrayNotContainingKindOfClass {
+    NSArray *array = @[@"foo", @"bar", @"baz"];
+    
+    XCTAssertFalse([array dlr_containsKindOfClass:[NSNumber class]]);
+}
+
+#pragma mark - dlr_containsMemberOfClass:
+
+- (void)testArrayContainingMemberOfClass {
+    NSArray *array = @[[ClassB new]];
+    
+    XCTAssertFalse([array dlr_containsMemberOfClass:[ClassA class]]);
+    XCTAssertTrue([array dlr_containsMemberOfClass:[ClassB class]]);
+}
+
+- (void)testArrayNotContainingMemberOfClass {
+    NSArray *array = @[@"foo", @"bar", @"baz"];
+    
+    XCTAssertFalse([array dlr_containsMemberOfClass:[NSNumber class]]);
+}
+
+@end
+
+@implementation ClassA
+@end
+
+@implementation ClassB
 @end
