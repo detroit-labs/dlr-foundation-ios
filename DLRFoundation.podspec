@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "DLRFoundation"
-  s.version          = "1.0.0"
+  s.version          = "1.1.0"
   s.summary          = "A collection of Foundation categories."
   s.homepage         = "https://github.com/detroit-labs/dlr-foundation-ios"
   s.license          = 'MIT'
