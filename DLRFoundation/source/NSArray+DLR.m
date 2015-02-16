@@ -58,4 +58,36 @@
     return beforeObject;
 }
 
+- (BOOL)dlr_containsKindOfClass:(Class)aClass {
+    __block BOOL containsKindOfClass = NO;
+    
+    [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if ([obj isKindOfClass:aClass]) {
+            containsKindOfClass = YES;
+            
+            if (stop != NULL) {
+                *stop = YES;
+            }
+        }
+    }];
+    
+    return containsKindOfClass;
+}
+
+- (BOOL)dlr_containsMemberOfClass:(Class)aClass {
+    __block BOOL containsMemberOfClass = NO;
+    
+    [self enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if ([obj isMemberOfClass:aClass]) {
+            containsMemberOfClass = YES;
+            
+            if (stop != NULL) {
+                *stop = YES;
+            }
+        }
+    }];
+    
+    return containsMemberOfClass;
+}
+
 @end
