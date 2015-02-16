@@ -38,4 +38,11 @@ DLRFoundation is available under the MIT license. See the LICENSE file for more 
 /** Returns the object located before specificed object.
     If first object, returns last object. */
 - (id)dlr_objectBeforeObject:(id)object;
+
+/** Returns true if the array contains an instance of the specified class or its
+    subclasses. */
+- (BOOL)dlr_containsKindOfClass:(Class)aClass;
+
+/** Returns true if the array contains a member of the specified class. */
+- (BOOL)dlr_containsMemberOfClass:(Class)aClass;
 ```
