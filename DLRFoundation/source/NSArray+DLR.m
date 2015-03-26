@@ -20,7 +20,7 @@
 
 - (id)dlr_objectAfterObject:(id)object {
     if (!object) {
-        nil;
+        return nil;
     }
     
     NSUInteger index = [self indexOfObject:object];
@@ -39,7 +39,7 @@
 
 - (id)dlr_objectBeforeObject:(id)object {
     if (!object) {
-        nil;
+        return nil;
     }
     
     NSUInteger index = [self indexOfObject:object];

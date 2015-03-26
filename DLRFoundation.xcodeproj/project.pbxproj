@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		432E4FDB1AC49942008F8FB6 /* NSString+DLR.h in Headers */ = {isa = PBXBuildFile; fileRef = 432E4FD91AC49942008F8FB6 /* NSString+DLR.h */; };
+		432E4FDC1AC49942008F8FB6 /* NSString+DLR.m in Sources */ = {isa = PBXBuildFile; fileRef = 432E4FDA1AC49942008F8FB6 /* NSString+DLR.m */; };
+		432E4FDE1AC49F6C008F8FB6 /* NSString+DLRTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 432E4FDD1AC49F6C008F8FB6 /* NSString+DLRTests.m */; };
 		433676D01A8551AE0012D0FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 433676CF1A8551AE0012D0FE /* main.m */; };
 		433676D31A8551AE0012D0FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 433676D21A8551AE0012D0FE /* AppDelegate.m */; };
 		433676D91A8551AE0012D0FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 433676D71A8551AE0012D0FE /* Main.storyboard */; };
@@ -41,6 +44,9 @@
 		4322701C1A85464300EC6EED /* DLRFoundation.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DLRFoundation.podspec; sourceTree = "<group>"; };
 		4322701D1A85464300EC6EED /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4322701E1A85464300EC6EED /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		432E4FD91AC49942008F8FB6 /* NSString+DLR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DLR.h"; sourceTree = "<group>"; };
+		432E4FDA1AC49942008F8FB6 /* NSString+DLR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DLR.m"; sourceTree = "<group>"; };
+		432E4FDD1AC49F6C008F8FB6 /* NSString+DLRTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DLRTests.m"; sourceTree = "<group>"; };
 		433676CB1A8551AE0012D0FE /* DLRFoundationExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DLRFoundationExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		433676CE1A8551AE0012D0FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		433676CF1A8551AE0012D0FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -175,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				439373501A8520C400A552D5 /* NSArray+DLRTests.m */,
+				432E4FDD1AC49F6C008F8FB6 /* NSString+DLRTests.m */,
 			);
 			name = "Category Tests";
 			path = source;
@@ -185,6 +192,8 @@
 			children = (
 				439373531A8520FC00A552D5 /* NSArray+DLR.h */,
 				439373541A8520FC00A552D5 /* NSArray+DLR.m */,
+				432E4FD91AC49942008F8FB6 /* NSString+DLR.h */,
+				432E4FDA1AC49942008F8FB6 /* NSString+DLR.m */,
 			);
 			name = Categories;
 			path = source;
@@ -220,6 +229,7 @@
 			files = (
 				439373551A8520FC00A552D5 /* NSArray+DLR.h in Headers */,
 				439373131A851DD000A552D5 /* DLRFoundation.h in Headers */,
+				432E4FDB1AC49942008F8FB6 /* NSString+DLR.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				432E4FDC1AC49942008F8FB6 /* NSString+DLR.m in Sources */,
 				439373561A8520FC00A552D5 /* NSArray+DLR.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,6 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				432E4FDE1AC49F6C008F8FB6 /* NSString+DLRTests.m in Sources */,
 				439373511A8520C400A552D5 /* NSArray+DLRTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -524,6 +536,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				INFOPLIST_FILE = DLRFoundation/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -539,6 +553,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				INFOPLIST_FILE = DLRFoundation/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
