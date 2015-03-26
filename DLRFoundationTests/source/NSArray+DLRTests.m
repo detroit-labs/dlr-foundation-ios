@@ -10,13 +10,19 @@
 
 #import "NSArray+DLR.h"
 
-// These two empty classes support testing class membership below and should not
-// be used directly.
-@interface ClassA : NSObject
-@end
-@interface ClassB : ClassA
+#pragma mark -
+
+// These two empty classes support testing class membership below and should not be used directly.
+
+@interface NSArray_DLRTests_ClassA : NSObject
+
 @end
 
+@interface NSArray_DLRTests_ClassB : NSArray_DLRTests_ClassA
+
+@end
+
+#pragma mark -
 
 @interface NSArray_DLRTests : XCTestCase
 
@@ -52,6 +58,12 @@
 
 #pragma mark - dlr_objectAfterObject
 
+- (void)testObjectAfterObject_nil {
+    NSArray *array = @[@"A", @"B", @"C"];
+    
+    XCTAssertNil([array dlr_objectAfterObject:nil]);
+}
+
 - (void)testObjectAfterObject {
     NSArray *array = @[@"A", @"B", @"C"];
     
@@ -67,6 +79,12 @@
 }
 
 #pragma mark - dlr_objectBeforeObject
+
+- (void)testObjecBeforeObject_nil {
+    NSArray *array = @[@"A", @"B", @"C"];
+    
+    XCTAssertNil([array dlr_objectBeforeObject:nil]);
+}
 
 - (void)testObjecBeforeObject {
     NSArray *array = @[@"A", @"B", @"C"];
@@ -85,10 +103,10 @@
 #pragma mark - dlr_containsKindOfClass:
 
 - (void)testArrayContainingKindOfClass {
-    NSArray *array = @[[ClassB new]];
+    NSArray *array = @[[NSArray_DLRTests_ClassB new]];
     
-    XCTAssertTrue([array dlr_containsKindOfClass:[ClassA class]]);
-    XCTAssertTrue([array dlr_containsKindOfClass:[ClassB class]]);
+    XCTAssertTrue([array dlr_containsKindOfClass:[NSArray_DLRTests_ClassA class]]);
+    XCTAssertTrue([array dlr_containsKindOfClass:[NSArray_DLRTests_ClassB class]]);
 }
 
 - (void)testArrayNotContainingKindOfClass {
@@ -100,10 +118,10 @@
 #pragma mark - dlr_containsMemberOfClass:
 
 - (void)testArrayContainingMemberOfClass {
-    NSArray *array = @[[ClassB new]];
+    NSArray *array = @[[NSArray_DLRTests_ClassB new]];
     
-    XCTAssertFalse([array dlr_containsMemberOfClass:[ClassA class]]);
-    XCTAssertTrue([array dlr_containsMemberOfClass:[ClassB class]]);
+    XCTAssertFalse([array dlr_containsMemberOfClass:[NSArray_DLRTests_ClassA class]]);
+    XCTAssertTrue([array dlr_containsMemberOfClass:[NSArray_DLRTests_ClassB class]]);
 }
 
 - (void)testArrayNotContainingMemberOfClass {
@@ -114,8 +132,12 @@
 
 @end
 
-@implementation ClassA
+#pragma mark -
+
+@implementation NSArray_DLRTests_ClassA
+
 @end
 
-@implementation ClassB
+@implementation NSArray_DLRTests_ClassB
+
 @end
